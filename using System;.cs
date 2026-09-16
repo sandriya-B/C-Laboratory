@@ -1,14 +1,20 @@
 using System;
 
-class Student
+// Base class
+class Animal
 {
-    public string name;
-    public int age;
-
-    public void Display()
+    public void Eat()
     {
-        Console.WriteLine("Student Name: " + name);
-        Console.WriteLine("Student Age: " + age);
+        Console.WriteLine("Animal is eating");
+    }
+}
+
+// Derived class
+class Dog : Animal
+{
+    public void Bark()
+    {
+        Console.WriteLine("Dog is barking");
     }
 }
 
@@ -16,11 +22,9 @@ class Program
 {
     static void Main()
     {
-        Student s1 = new Student();
+        Dog d = new Dog();
 
-        s1.name = "Sandriya";
-        s1.age = 20;
-
-        s1.Display();
+        d.Eat();   // Method inherited from Animal
+        d.Bark();  // Method of Dog
     }
 }
