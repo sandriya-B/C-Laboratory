@@ -1,0 +1,47 @@
+﻿using System;
+
+class Complex
+{
+    public int Real;
+    public int Imaginary;
+
+    public Complex(int real, int imaginary)
+    {
+        Real = real;
+        Imaginary = imaginary;
+    }
+
+    // Operator overloading for +
+    public static Complex operator +(Complex c1, Complex c2)
+    {
+        return new Complex(
+            c1.Real + c2.Real,
+            c1.Imaginary + c2.Imaginary
+        );
+    }
+
+    public void Display()
+    {
+        Console.WriteLine(Real + " + " + Imaginary + "i");
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        Complex c1 = new Complex(3, 4);
+        Complex c2 = new Complex(2, 5);
+
+        Console.Write("First Complex Number: ");
+        c1.Display();
+
+        Console.Write("Second Complex Number: ");
+        c2.Display();
+
+        Complex result = c1 + c2;
+
+        Console.Write("After Addition: ");
+        result.Display();
+    }
+}
