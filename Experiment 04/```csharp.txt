@@ -1,0 +1,49 @@
+```csharp
+using System;
+
+// Publisher class
+class Button
+{
+    // Declare a delegate
+    public delegate void ButtonClickHandler();
+
+    // Declare an event
+    public event ButtonClickHandler ButtonClicked;
+
+    // Method to simulate button click
+    public void Click()
+    {
+        Console.WriteLine("Button is clicked!");
+
+        // Raise the event
+        if (ButtonClicked != null)
+        {
+            ButtonClicked();
+        }
+    }
+}
+
+// Subscriber class
+class Program
+{
+    // Method that handles the event
+    static void ShowMessage()
+    {
+        Console.WriteLine("Hello! Button click event handled.");
+    }
+
+    static void Main()
+    {
+        // Create Button object
+        Button btn = new Button();
+
+        // Connect method to event using delegate
+        btn.ButtonClicked += ShowMessage;
+
+        // Simulate button click
+        btn.Click();
+
+        Console.ReadLine();
+    }
+}
+```
